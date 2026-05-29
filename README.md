@@ -35,8 +35,8 @@ It is one of the plugins Albitor makes available to its users. The standards con
 Add the marketplace that lists this plugin, then install:
 
 ```bash
-claude plugin marketplace add <albitor-marketplace-repo>
-claude plugin install gds@<marketplace-name>
+claude plugin marketplace add albitor-ltd/albitor-plugins
+claude plugin install gds@albitor-plugins
 ```
 
 Or load it directly for one session during development:
