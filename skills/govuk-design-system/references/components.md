@@ -53,13 +53,13 @@ General rules that apply to nearly all components:
 ## Navigation and page-furniture components
 
 ### GOV.UK header — `govukHeader`
-The black GOV.UK-branded header (crown logo, "GOV.UK"). Use at the very top of every page. Has a JS-enhanced mobile navigation toggle. Do not put service-specific navigation here — use Service navigation for that.
+The black GOV.UK-branded header (crown logo, "GOV.UK"). Use at the very top of every page. Has a JS-enhanced mobile navigation toggle. Do not put service-specific navigation here — use Service navigation for that. For services **on GOV.UK only**: off GOV.UK the crown logo and the "GOV.UK" name must not be used — build your own header using GDS layout and typography with your own brand.
 
 ### Service navigation — `govukServiceNavigation`
 Shows the service name and (optionally) navigation links beneath the GOV.UK header. Replaces the older pattern of putting the service name in the header. Has a JS mobile menu. Use it for navigation that applies across the whole service.
 
 ### GOV.UK footer — `govukFooter`
-Standard footer. Includes the Open Government Licence statement and Crown copyright by default — keep these. Add your service's links (accessibility statement, cookies, privacy, terms).
+Standard footer. Includes the Open Government Licence statement and Crown copyright by default — keep these. Add your service's links (accessibility statement, cookies, privacy, terms). For services **on GOV.UK only**: off GOV.UK the OGL and Crown copyright do not apply — build your own footer using GDS layout and typography with your own brand and licensing.
 
 ### Phase banner — `govukPhaseBanner`
 Shows the service phase (Alpha / Beta) as a Tag plus a sentence with a feedback link. Use while a service is not yet Live. Remove it (or the banner) once Live.
