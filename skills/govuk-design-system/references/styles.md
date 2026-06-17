@@ -43,8 +43,20 @@ Meet WCAG 2.2 level AA, success criterion 1.4.3: text and interactive elements n
 
 ## Typography
 
-### Typeface
-GDS Transport (also referred to as "New Transport" / `nta`) is the GOV.UK typeface, with a system font stack fallback (`arial, sans-serif`). The font files ship with GOV.UK Frontend and are served from your own assets (do not hotlink). On non-GOV.UK domains the licence may not permit GDS Transport — fall back to Arial.
+### Typeface — GDS Transport is GOV.UK-only
+
+GDS Transport (also called "New Transport" / `nta`) is the GOV.UK typeface. **Its licence only permits use on services published on GOV.UK** (`*.service.gov.uk` / `gov.uk`). Using it anywhere else — internal tools, council/NHS/ALB sites, or commercial builds — is a font-licensing breach. This is not a style preference; it is a legal constraint (see the "is this service on GOV.UK?" table in `SKILL.md`).
+
+- **On GOV.UK:** use GDS Transport. Serve the font files from your own assets (they ship with GOV.UK Frontend; do not hotlink). Keep the default `$govuk-font-family` and let `$govuk-include-default-font-face` stay `true` so the `@font-face` rules are emitted.
+- **Not on GOV.UK:** do **not** ship or reference the GDS Transport files. Override the font to a system stack and suppress the bundled `@font-face`:
+
+  ```scss
+  // settings, before @use "govuk-frontend":
+  $govuk-include-default-font-face: false;           // don't emit the GDS Transport @font-face
+  $govuk-font-family: arial, helvetica, sans-serif;  // or your own brand stack
+  ```
+
+  Everything else in the Design System (the type scale, weights, spacing, components) is unchanged — only the typeface differs. Do not deploy the `govuk-frontend` font assets (`/assets/fonts/*`) for an off-GOV.UK build; if they are absent the browser uses the stack above. (A common deployment bug is an SPA catch-all serving `index.html` for missing `/assets/fonts/*`, which then fails to decode as a font — drop the font references entirely instead.)
 
 ### Type scale
 Sizes are output in relative units (`rem`/`em`) for zoom/magnification. Line heights are multiples of 5px. Sizes are larger on screens ≥ 640px (the "tablet" breakpoint) and smaller below.
