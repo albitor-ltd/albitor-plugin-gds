@@ -21,6 +21,7 @@ It is one of the plugins Albitor makes available to its users. The standards con
 | `/gds:audit [target]` | WCAG 2.2 AA audit of a file, component, or the current changes; prioritised findings. |
 | `/gds:accessibility-statement [details]` | Draft a GOV.UK-format accessibility statement from the model template. |
 | `/gds:review [target]` | Review frontend changes against **both** the Design System and WCAG 2.2 AA. |
+| `/gds:preview [open\|serve]` | Open or serve the crownless Design System preview page (see below). |
 
 ### Agent
 
@@ -29,6 +30,16 @@ It is one of the plugins Albitor makes available to its users. The standards con
 ### Hook
 
 - A non-blocking `PostToolUse` hook (`hooks/check-frontend.sh`) that runs after edits to frontend files (`.html`, `.njk`, `.svelte`, `.vue`, `.jsx`, `.tsx`, and more). It flags a **high-confidence** subset of issues — missing `alt`, missing `lang`, positive `tabindex`, click handlers on `<div>`/`<span>`, fake `href="#"` buttons — and surfaces them to Claude to fix. It never blocks and stays silent on clean files. It is a nudge, not a substitute for `/gds:audit`. Requires `jq`.
+
+### Preview page
+
+`preview/index.html` is a self-contained, static **kitchen-sink** showcase of the GOV.UK Design System — buttons, form fields (inputs, textarea, select, radios, checkboxes with conditional reveal, date input), error summary and inline errors, notification banners, tags, panel, tables, tabs, summary list, task list, accordion, breadcrumbs, phase banner, and the standard black header bar. It opens straight from `file://` with no build step (all CSS is inlined) and is served or opened by `/gds:preview`.
+
+It is deliberately **crownless**: no crown logo, no "GOV.UK" logotype, no GDS Transport typeface, and no Open Government Licence / Crown-copyright statements — a neutral service name and a system font stack are used instead. This matches how the Design System is used for **non-government** services; shipping those assets off a `service.gov.uk` domain is a licensing breach (which this plugin's own auditor flags). Every Albitor design-system plugin ships a preview page as a standard capability, and this one has three consumers:
+
+- **Create / describe-and-build flow** — a visual reference for the components and patterns available when scoping a build.
+- **Post-build design review** — the baseline the delivered UI is reviewed against.
+- **Handover pack** — a component showcase bundled with what's handed to the recipient.
 
 ## Installing
 
