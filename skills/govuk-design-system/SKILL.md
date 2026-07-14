@@ -1,6 +1,8 @@
 ---
 name: govuk-design-system
 description: Use when building, reviewing, or discussing a GOV.UK or UK public sector frontend — any HTML/Nunjucks/React/Svelte UI that should follow the GOV.UK Design System. Covers the 34 components, page and "ask users for information" patterns, the GOV.UK colour/typography/layout/spacing styles, and how to consume GOV.UK Frontend (Nunjucks macros or copied HTML) with progressive enhancement.
+metadata:
+  capability: design-system
 ---
 
 # GOV.UK Design System
