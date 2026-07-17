@@ -56,6 +56,7 @@ Help users self-assess eligibility before they start, using question pages. Rout
 For long applications made of several independent tasks. Use the Task list pattern: a list of tasks each with a status Tag ("Completed", "In progress", "Not started", "Cannot start yet"), a count of completed tasks, and a return point users can come back to.
 - Do: let users do tasks in any sensible order and save progress; show statuses in text (not colour only).
 - Don't: use it for short linear journeys (use sequential question pages instead).
+- **Live status without a manual refresh:** where a status changes asynchronously (a task moving to "Completed", a submitted request moving to "Processed"), reflect it on its own — as a progressive enhancement, poll or refetch so the status Tag updates in place rather than leaving the user to re-load the page to find out. Keep the page correct on a normal reload so no-JS users still see the current status, and announce the change (`aria-live` / 4.1.3).
 
 ### Confirm an email address
 Verify the user controls an email by sending a link/code and having them confirm. Allow re-sending; explain to check spam; let users change the address if wrong.
@@ -74,6 +75,8 @@ Where a username is needed, prefer email address as the identifier. If a separat
 
 ### Navigate a service
 Use consistent navigation: GOV.UK header, Service navigation for service-wide links, Back link within linear journeys, Breadcrumbs only for hierarchical/browse structures. Don't mix Back link and Breadcrumbs.
+- **Human labels over raw identifiers:** in page content, service navigation, and check-answers rows, show friendly, human-readable names ("Speaker 1", not `spk_0`); keep the raw reference for the URL or back-end call, never as the label the user reads.
+- **Keep the page title accurate on every route:** each page needs a unique, descriptive `<title>` (2.4.2), prefixed with "Error: " on a validation error. Where the service enhances navigation client-side, keep `document.title` in sync as the route changes so the browser tab and history reflect the current page, not the one first loaded.
 
 ### Start using a service
 See Start pages above — set expectations and provide a single Start button.
