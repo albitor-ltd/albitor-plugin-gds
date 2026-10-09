@@ -41,6 +41,17 @@ It is deliberately **crownless**: no crown logo, no "GOV.UK" logotype, no GDS Tr
 - **Post-build design review** — the baseline the delivered UI is reviewed against.
 - **Handover pack** — a component showcase bundled with what's handed to the recipient.
 
+### Preview tokens
+
+`preview-tokens.json` is the small, generic token set Albitor's look preview paints this house style
+from (albitor-ltd/albitor#3070): fonts, a four-step type scale, radius, density, elevation, and the
+text, border, surface, background and accent colours. Albitor validates it against an allow-list at
+ingest (hex colours, px/rem lengths, plain font-family names, fixed enums) and ignores a file that
+fails. The values are GOV.UK Frontend: the text, secondary-text, border, light-grey and brand
+colours, the 16/19/24/36px type scale (body-s, body, heading-m, heading-l) and square corners. The
+font stack is GOV.UK Frontend's fallback (`arial, sans-serif`): this pack is crownless and ships no
+GDS Transport.
+
 ## Installing
 
 Add the marketplace that lists this plugin, then install:
