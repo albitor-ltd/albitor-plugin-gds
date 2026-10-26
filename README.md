@@ -1,3 +1,5 @@
+> **Archived 2026-10-26.** Superseded by [albitor-ltd/albitor-plugins](https://github.com/albitor-ltd/albitor-plugins) (`plugins/gds`, tag `gds/v0.1.9`). Read-only.
+
 # GDS standards plugin (`gds`)
 
 A [Claude Code plugin](https://code.claude.com/docs/en/plugins) that helps you build and audit **GOV.UK-compliant** services. It packages the **GOV.UK Design System** and **WCAG 2.2 AA accessibility** (plus the UK public sector accessibility regulations) into skills, commands, an audit agent, and an advisory hook.
